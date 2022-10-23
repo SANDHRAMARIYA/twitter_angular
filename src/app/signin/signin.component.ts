@@ -8,25 +8,17 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private myrouter:Router) { }
+  constructor(private myap) { }
 
 
-  username=""
+  email=""
   password=""
 
   readValues=()=>{
     let data={
-      "username":this.username,
+      "email":this.email,
       "password":this.password
     }
-if (this.username=="admin" && this.password=="123")
-{
- this.myrouter.navigate(["/signup"])
-}
-else
-{
-  alert("invalid login")
-}
     console.log(data)
    
   }
