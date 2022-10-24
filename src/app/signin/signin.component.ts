@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private myap) { }
+  constructor(private myapi:ApiService) { }
 
 
   email=""
@@ -20,6 +21,17 @@ export class SigninComponent implements OnInit {
       "password":this.password
     }
     console.log(data)
+    this.myapi.signin(data).subscribe(
+      (response:any)=>{
+if (response.length>0)
+  {
+
+}else
+{
+alert("invalid credentials")
+}
+      }
+    )
    
   }
 
