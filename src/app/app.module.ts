@@ -8,19 +8,24 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TweetpageComponent } from './tweetpage/tweetpage.component';
 const appRoutes:Routes=[
   {
     path:"",component:SigninComponent
   },
   {
     path:"signup",component:SignupComponent
+  },
+  {
+    path:"tweet",component:TweetpageComponent
   }
 ]
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    TweetpageComponent
   ],
   imports: [
     BrowserModule,

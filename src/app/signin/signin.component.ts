@@ -9,24 +9,28 @@ import { ApiService } from '../api.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private myapi:ApiService) { }
+  constructor(private myapi:ApiService,private myRouter:Router) { }
 
 
-  email=""
+  emailid=""
   password=""
 
   readValues=()=>{
     let data={
-      "email":this.email,
+      "emailid":this.emailid,
       "password":this.password
     }
     console.log(data)
     this.myapi.signin(data).subscribe(
       (response:any)=>{
+
 if (response.length>0)
   {
-
-}else
+    localStorage.setItem("stored_name",response[0].name)
+    localStorage.setItem("stored_id",response[0].id)
+this.myRouter.navigate(["/tweet"])
+}
+else
 {
 alert("invalid credentials")
 }
