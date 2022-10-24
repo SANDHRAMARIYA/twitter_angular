@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { HttpClientModule } from '@angular/common/http';
 const appRoutes:Routes=[
   {
     path:"",component:SigninComponent
@@ -26,6 +26,7 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
