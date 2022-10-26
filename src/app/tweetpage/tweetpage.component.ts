@@ -1,4 +1,6 @@
+import { DATE_PIPE_DEFAULT_TIMEZONE } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-tweetpage',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TweetpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myapi:ApiService) {
+    this.fetchData()
+   }
 
   name=localStorage.getItem("stored_name")
+post=""
+
+readValue=()=>{
+  let data={
+    "user_id":localStorage.getItem("id"),
+    "post":this.post,
+  }
+  console.log(data)
+  
+    this.myapi.addPost(data).subscribe(
+      (res)=>{
+  
+      }
+    )
+    this.fetchData()
+    this.post=""
+  }
+  
+  fetchData=()=>{
+    this.myapi.view().subscribe(
+      (res)=>{
+      this.viewData=res
+      }
+    )
+  }
+ 
+ viewData:any=[]
+  
 
   ngOnInit(): void {
   }

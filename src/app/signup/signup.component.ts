@@ -30,8 +30,23 @@ export class SignupComponent implements OnInit {
 
     }
     console.log(data)
+    alert("succesfully added")
+    this.myapi.adduser(data).subscribe(
+      (res)=>{
+        alert("successfully added")
+      }
+    )
+    this.name=""
+    this.phnum=""
+    this.dob=""
+    this.place=""
+    this.emailid=""
+    this.password=""
+    this.conpass=""
+
+
   }
-signupData:any=[]
+
 
   ngOnInit(): void {
   }
