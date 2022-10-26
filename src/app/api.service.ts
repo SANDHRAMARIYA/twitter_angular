@@ -23,4 +23,8 @@ export class ApiService {
   view=()=>{
     return this.http.get("http://localhost:8080/view")
   }
+
+  viewSingle=(data:any)=>{
+    return this.http.post("http://localhost:8080/viewSingle",data)
+  }
 }

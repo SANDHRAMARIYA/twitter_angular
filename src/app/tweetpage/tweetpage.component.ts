@@ -16,16 +16,16 @@ export class TweetpageComponent implements OnInit {
   name=localStorage.getItem("stored_name")
 post=""
 
-readValue=()=>{
+readValues=()=>{
   let data={
     "user_id":localStorage.getItem("id"),
-    "post":this.post,
+    "post":this.post
   }
   console.log(data)
   
     this.myapi.addPost(data).subscribe(
       (res)=>{
-  
+        
       }
     )
     this.fetchData()
