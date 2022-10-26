@@ -25,7 +25,7 @@ readValues=()=>{
   
     this.myapi.addPost(data).subscribe(
       (res)=>{
-        
+       alert("added post") 
       }
     )
     this.fetchData()
